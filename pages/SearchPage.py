@@ -16,23 +16,23 @@ class SearchPage(BasePage):
         return self.driver.find_elements_by_xpath("//h3[@class='s-item__title']")
 
     def isNoExactMatchesMessageVisible(self):
-        self.noExactMatchesMessage.isDisplayed()
+        self.noExactMatchesMessage.is_displayed()
 
     def setMinimumPrice(self, price):
-        self.fieldMinPrice.sendKeys(price + Keys.ENTER)
+        self.fieldMinPrice.set_text(price + Keys.ENTER)
 
-    def ErrorInputPriceValue(self):
+    def errorInputPriceValue(self):
         expected = True
-        if self.resultErrorPriceFind.size() == 1:
+        if self.resultErrorPriceFind == 1:
             expected = False
         return expected
 
     def setRelatedSearch(self, text):
-        for element in self.relatedSearch:
+        for element in self.driver.find_elements_by_xpath(self.locators.get("relatedSearch")[1]):
             try:
-                elementText = element.getText()
+                element_text = element.text
             except Exception:
-                elementText = ""
-            if text in elementText:
-                element.clik()
+                element_text = ""
+            if text in element_text:
+                element.click()
                 continue

@@ -12,10 +12,10 @@ class ProductPage(BasePage):
         self.buttonAddToWatchlist.click()
 
     def inputFieldNumberProduct(self, number):
-        self.fieldNumberProduct.sendKeys(number)
+        self.fieldNumberProduct.set_text(number)
 
     def clickFieldNumberProduct(self):
         self.fieldNumberProduct.click()
 
     def isErrorNumberMessage(self):
-        self.errorNumberMessage.isDisplayed()
+        self.errorNumberMessage.is_displayed()

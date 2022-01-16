@@ -10,10 +10,10 @@ class LoginPage(BasePage):
     }
 
     def isErrorMessageVisible(self):
-        self.errorMessage.isDisplayed()
+        self.errorMessage.is_displayed()
 
     def inputFieldUserName(self, name):
-        self.fieldUserName.sendKeys(name)
+        self.fieldUserName.set_text(name)
 
     def getFieldUserName(self):
         return self.fieldUserName
